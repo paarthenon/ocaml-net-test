@@ -1,0 +1,3 @@
+#!/bin/zsh
+ocamlfind ocamlc -package curl -linkpkg -o a.out curl_example.ml
+

@@ -1,5 +1,3 @@
-open Curl
-
 
   let _ =
     let connection = Curl.init () in
