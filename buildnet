@@ -1,0 +1,3 @@
+#!/bin/zsh
+ocamlfind ocamlc -package netclient -linkpkg -o a.out netclient_test.ml
+
