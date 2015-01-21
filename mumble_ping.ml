@@ -3,7 +3,7 @@
 open Unix;;
 
 let sock = socket PF_INET SOCK_STREAM 0 in
-let path = "slaterose.com" in
+let path = Sys.argv.(1) in
 let entry = (gethostbyname path) in
 connect sock (ADDR_INET (entry.h_addr_list.(0), 64738)) ;
 let str = String.create 1024 in
