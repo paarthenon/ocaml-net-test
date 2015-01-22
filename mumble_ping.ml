@@ -12,17 +12,18 @@ let ping_req =
 
 let parse_response resp =
 	bitmatch resp with
-	| { v_maj : 16 : bigendian;
+	| { 
+		v_maj : 16 : bigendian;
 		v_min : 8 : bigendian;
 		v_patch : 8 : bigendian;
 		ident : 64 : bigendian;
 		cur_users : 32 : bigendian;
 		max_users : 32 : bigendian;
-		bandwidth : 32 : bigendian }
-		-> 
-			(print_string "Received a response from the server\n");
-			(Printf.printf "Version: %u.%u.%u \n" v_maj v_min v_patch);
-			(Printf.printf "Users active: (%u/%u)\n" (Int32.to_int cur_users) (Int32.to_int max_users))
+		bandwidth : 32 : bigendian 
+	} ->
+		(print_string "Received a response from the server\n");
+		(Printf.printf "Version: %u.%u.%u \n" v_maj v_min v_patch);
+		(Printf.printf "Users active: (%u/%u)\n" (Int32.to_int cur_users) (Int32.to_int max_users))
 	| { _ } -> print_string "Received invalid response"
 
 
